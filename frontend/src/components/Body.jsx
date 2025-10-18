@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Trash2 } from 'lucide-react'
 
 function Body(){
 
@@ -7,8 +8,14 @@ function Body(){
 
     const handleTasks = () => {
         const newTask = task
+        if(newTask.trim() === "") return;
         setTasks([...tasks, newTask])
         setTask("")
+    }
+
+    const handleDeleteTask = (index) => {
+        const updatedTask = tasks.filter((_,i) => i !== index)
+        setTasks(updatedTask)
     }
 
     return( 
@@ -19,7 +26,7 @@ function Body(){
             </div>
             <div className="border mt-5 h-[600px]">
                 <div className=" bg-gradient-to-r from-blue-500 text-center border-b">
-                    <h1 className="text-2xl">Tasks</h1>
+                    <h1 className="text-2xl text-white">Tasks</h1>
                 </div>
                 <div>
                     <div className="flex flex-wrap">
@@ -27,9 +34,9 @@ function Body(){
                             tasks && tasks.length > 0 ? 
                             tasks.map((item,index) => (
                                 <div>
-                                    <div className="border inline-flex m-1 gap-3" key={index}>
+                                    <div className="border border-slate-700 rounded inline-flex m-1 gap-3 p-1" key={index}>
                                         <span>{item}</span>
-                                        <span>X</span>
+                                        <span onClick={() => handleDeleteTask(index)}><Trash2 className="w-5" /></span>
                                     </div>
                                 </div>
                             ))
