@@ -3,7 +3,9 @@ import React from 'react'
 function Body(){
 
     return( 
-        <input />
+        <div>
+            <h2>Body</h2>
+        </div>
     );
 }
 
