@@ -19,12 +19,12 @@ function Body(){
     }
 
     return( 
-        <div className="border m-5 h-[700px] p-5 rounded-md">
+        <div className="border border-slate-500 m-5 h-[700px] p-5 rounded-md">
             <div className="flex gap-5">
                 <input value={task} onChange={(event) => setTask(event.target.value)} className="border border-gray-800 w-[650px] h-10 rounded pl-3 outline-none" />
                 <button onClick={handleTasks} className="border border-gray-800 h-10 w-20 rounded-md">Add Task</button>
             </div>
-            <div className="border mt-5 h-[600px]">
+            <div className="border border-slate-500 rounded mt-5 h-[600px]">
                 <div className=" bg-gradient-to-r from-blue-500 text-center border-b">
                     <h1 className="text-2xl text-white">Tasks</h1>
                 </div>
